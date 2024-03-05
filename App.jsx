@@ -7,6 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {SparklesIcon, ShoppingCartIcon} from 'react-native-heroicons/micro';
 import CartScreen from './screens/CartScreen';
+import { CartContextProvider } from "./store/CartContext";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -69,11 +70,11 @@ const BottomTabs = () => {
 const App = () => {
   return (
     <NavigationContainer>
-      <BottomTabs />
+      <CartContextProvider>
+        <BottomTabs />
+      </CartContextProvider>
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default App;
