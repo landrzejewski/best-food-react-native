@@ -13,7 +13,7 @@ npm install react-native-heroicons
 npm install react-native-svg
 npx pod-install
 
-# Klient HTPP
+# Klient HTTP
 npm install axios
 
 # Redux

@@ -1,5 +1,5 @@
-import React from 'react';
-import {StyleSheet, Text} from 'react-native';
+import React, {useEffect} from 'react';
+import { Button, SafeAreaView, StyleSheet, Text } from "react-native";
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CategoriesScreen from './screens/CategoriesScreen';
 import DishesInCategoryScreen from './screens/DishesInCategoryScreen';
@@ -7,7 +7,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {SparklesIcon, ShoppingCartIcon} from 'react-native-heroicons/micro';
 import CartScreen from './screens/CartScreen';
-import { CartContextProvider } from "./store/CartContext";
+import {CartContextProvider} from './store/CartContext';
+import axios from 'axios';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -68,12 +69,27 @@ const BottomTabs = () => {
 };
 
 const App = () => {
+  const fetch = async () => {
+    const url =
+      'https://api.openweathermap.org/data/2.5/forecast/daily?cnt=7&units=metric&APPID=b933866e6489f58987b2898c89f542b8&q=warsaw';
+    try {
+      const response = await axios.get(url);
+      console.log(response.data);
+    } catch (e) {
+      console.log('Fetch error: ' + e.status);
+    }
+  };
+
   return (
-    <NavigationContainer>
+    <SafeAreaView style={{flex: 1}}>
+      <Button title="Fetch" onPress={fetch} />
+    </SafeAreaView>
+
+    /*<NavigationContainer>
       <CartContextProvider>
         <BottomTabs />
       </CartContextProvider>
-    </NavigationContainer>
+    </NavigationContainer>*/
   );
 };
 
