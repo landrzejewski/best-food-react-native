@@ -1,6 +1,10 @@
 import {createContext, useState} from 'react';
 
-export const CartContext = createContext({});
+export const CartContext = createContext({
+  ids: [],
+  addDish: id => {},
+  removeDish: id => {},
+});
 
 export const CartContextProvider = ({children}) => {
   const [ids, setIds] = useState([]);
