@@ -20,3 +20,10 @@ npm install axios
 npm install react-redux
 npm install @reduxjs/toolkit
 
+#
+
+Aplikacja pokazująca pogodę
+Główna nawigacja oparta jest o taby
+a) Ekran 1 - pogoda (ładowana z sieci, loading view) na aktualny dzień + lista z ogólnymi informacjami na kolejne dni
+b) Ekran 2 - po wybraniu elementu listy (ekran 1) pokazujemy szczegóły związane z pogodę (nawigacja)
+c) Ekran 3 - ustawienia - ilość dni, jednostki, miasto (Context)
