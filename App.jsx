@@ -12,6 +12,7 @@ import axios from 'axios';
 import Counter from './store/counter/Counter';
 import {Provider} from 'react-redux';
 import store from './store/counter/store';
+import Hooks from "./store/Hooks";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -84,6 +85,8 @@ const App = () => {
   };
 
   return (
+    <Hooks/>
+
     /*<Provider store={store}>
       <Counter />
     </Provider>*/
@@ -92,11 +95,11 @@ const App = () => {
       <Button title="Fetch" onPress={fetch} />
     </SafeAreaView>*/
 
-    <NavigationContainer>
+   /*<NavigationContainer>
       <CartContextProvider>
         <BottomTabs />
       </CartContextProvider>
-    </NavigationContainer>
+    </NavigationContainer>*/
   );
 };
 
