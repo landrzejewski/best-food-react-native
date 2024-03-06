@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { Button, SafeAreaView, StyleSheet, Text } from "react-native";
+import {Button, SafeAreaView, StyleSheet, Text} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CategoriesScreen from './screens/CategoriesScreen';
 import DishesInCategoryScreen from './screens/DishesInCategoryScreen';
@@ -9,6 +9,9 @@ import {SparklesIcon, ShoppingCartIcon} from 'react-native-heroicons/micro';
 import CartScreen from './screens/CartScreen';
 import {CartContextProvider} from './store/CartContext';
 import axios from 'axios';
+import Counter from './store/counter/Counter';
+import {Provider} from 'react-redux';
+import store from './store/counter/store';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -81,15 +84,19 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <Button title="Fetch" onPress={fetch} />
-    </SafeAreaView>
+    /*<Provider store={store}>
+      <Counter />
+    </Provider>*/
 
-    /*<NavigationContainer>
+    /*<SafeAreaView style={{flex: 1}}>
+      <Button title="Fetch" onPress={fetch} />
+    </SafeAreaView>*/
+
+    <NavigationContainer>
       <CartContextProvider>
         <BottomTabs />
       </CartContextProvider>
-    </NavigationContainer>*/
+    </NavigationContainer>
   );
 };
 
